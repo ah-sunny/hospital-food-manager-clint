@@ -15,11 +15,11 @@ import VisibilityOff from "@mui/icons-material/VisibilityOff";
 import { Link, useNavigate } from "react-router-dom";
 import useAuth from "../hooks/useAuth";
 import { toast, ToastContainer } from "react-toastify";
+import axios from "axios";
+import Swal from "sweetalert2";
 
-
-
-export default function Login() {
-  const { LogInUser,logOut } = useAuth();
+export default function Register() {
+  const { createUser } = useAuth();
   const navigate = useNavigate();
 
   const [showPassword, setShowPassword] = React.useState(false);
@@ -38,21 +38,49 @@ export default function Login() {
   } = useForm();
   const handleLogIn = (data) => {
     console.log(data);
-    //LogIn
-    LogInUser(data.email, data.password)
-       
-    .then((result)=>{
-        console.log(result.user)
-        toast.success("user log in succesfully")
-        navigate('/dashboard')
-    })
-       .catch(error => {
-        logOut()
-           // console.error(error)
-           toast.error(`${error.message}`)
-       })
 
-    
+    const name = data.email.split("@")[0];
+    const userDetails = {
+      name: name,
+      email: data.email,
+      password: data?.password,
+      role: "admin",
+    };
+    console.log(userDetails);
+
+    createUser(data.email, data.password)
+      .then((res) => {
+        console.log(res.user);
+        //send to server
+        axios
+          .post("http://localhost:4000/users", userDetails)
+          .then((res) => {
+            if (res.data.insertedId) {
+              console.log("user added to the database");
+              //   reset();
+              Swal.fire({
+                position: "center",
+                icon: "success",
+                title: "User created successfully.",
+                showConfirmButton: false,
+                timer: 1500,
+              });
+
+              navigate("/dashboard");
+            }
+          })
+          .catch((error) => {
+            // console.error(error)
+            toast.error(`${error.message}`);
+          });
+
+        // toast.success("created")
+        // navigate("/")
+      })
+      .catch((error) => {
+        toast.error(`${error.message}`);
+        // console.error(error)
+      });
   };
 
   return (
@@ -60,7 +88,7 @@ export default function Login() {
       <h2 className="text-3xl mt-3 mb-5 text-center italic">
         Log In Your Account
       </h2>
-      <div className="flex flex-row-reverse gap-6 justify-center border-2 border-black w-fit mx-auto rounded-2xl p-12 mt-10 ">
+      <div className="flex flex-row gap-6 justify-center border-2 border-black w-fit mx-auto rounded-2xl p-12 mt-10 ">
         <div className="w-[46%]">
           <img
             className="hidden lg:block h-80 w-[100%]"
@@ -131,13 +159,12 @@ export default function Login() {
               size="large"
               className="font-bold text-lg bg-primary w-full mt-2"
             >
-              Login
+              Register
             </Button>
             <p className="text-base flex justify-evenly">
-              <span>Create new account</span>
-              <Link to="/register" className="text-blue-900 ">
-                {" "}
-                Register
+             <span> Already have an account?</span>
+              <Link to="/login" className="text-blue-900 ">
+                Login
               </Link>
             </p>
           </form>
