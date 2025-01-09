@@ -6,6 +6,7 @@ import Root from "../layout/Root";
 import Login from "../pages/Login";
 import Register from "../pages/Register";
 import HomePage from "../pages/HomePage";
+import PatientDetails from "../pages/dashboard/PatientDetails";
 // import DashboardLayoutBasic from "../layout/DashboardLayout";
 
   export const router = createBrowserRouter([
@@ -33,8 +34,9 @@ import HomePage from "../pages/HomePage";
       element: <DashboardLayout></DashboardLayout> ,
       children: [
         {
-          path: "/dashboard"
-          
+          path: "/dashboard/patient",
+          element: <PatientDetails></PatientDetails>
+
         }
       ]
       
