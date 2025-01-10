@@ -10,6 +10,9 @@ import PatientDetails from "../pages/dashboard/admin/PatientDetails";
 import DietChart from "../pages/dashboard/admin/DietChart";
 import InnerPantry from "../pages/dashboard/admin/InnerPantry";
 import TrackMeal from "../pages/dashboard/admin/TrackMeal";
+import FoodPreparetion from "../pages/dashboard/PantryMan/FoodPreparetion";
+import DeliveryPerson from "../pages/dashboard/PantryMan/DeliveryPerson";
+import Status from "../pages/dashboard/PantryMan/Status";
 // import DashboardLayoutBasic from "../layout/DashboardLayout";
 
   export const router = createBrowserRouter([
@@ -55,6 +58,19 @@ import TrackMeal from "../pages/dashboard/admin/TrackMeal";
           path: "/dashboard/trackMeal",
           element: <TrackMeal></TrackMeal>
 
+        },
+        // inner pantry route
+        {
+          path: "/dashboard/mealPreparetion",
+          element: <FoodPreparetion></FoodPreparetion>
+        },
+        {
+          path: "/dashboard/DeliveryPerson",
+          element: <DeliveryPerson></DeliveryPerson>
+        },
+        {
+          path: "/dashboard/DeliveryStatus",
+          element: <Status></Status>
         }
       ]
       

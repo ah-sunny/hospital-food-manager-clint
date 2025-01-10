@@ -18,7 +18,7 @@ const PatientDetails = () => {
         reset,
         formState: { errors },
     } = useForm();
-    const handleLogIn = (data) => {
+    const handlePatientDetails = (data) => {
         // console.log(data)
         const patientDetails = {
             patientName: data?.patientName,
@@ -64,7 +64,7 @@ const PatientDetails = () => {
 
             <div className="my-10">
                 <form
-                    onSubmit={handleSubmit(handleLogIn)}
+                    onSubmit={handleSubmit(handlePatientDetails)}
                     className=" w-full space-y-14">
                     {/* 1st row */}
                     <div className="flex gap-6 mb-5">
@@ -223,6 +223,9 @@ const PatientDetails = () => {
                             )}
                         </div>
                     </div>
+
+
+                    
                     <div className="mx-auto text-center" >
                         <TextField
                             id="outlined-textarea"
