@@ -7,6 +7,7 @@ import MenuItem from '@mui/material/MenuItem';
 import FormControl from '@mui/material/FormControl';
 import Select from '@mui/material/Select';
 import Chip from '@mui/material/Chip';
+import { Button } from '@mui/material';
 
 
 
@@ -56,6 +57,11 @@ const [nightFood, setnightFood] = React.useState([])
           typeof value === 'string' ? value.split(',') : value,
         );
       }
+
+
+      const handleDietNight =()=>{
+        
+      }
     return (
         <div >
          {/* three colounm */}
@@ -63,7 +69,7 @@ const [nightFood, setnightFood] = React.useState([])
            <h1 className="text-2xl font-bold mx-auto text-center my-5 border-b-2 pb-2 border-gray-500" >Night</h1>
 
            <div>
-             <FormControl sx={{ m: 1, width: 450 }}>
+             <FormControl sx={{  width:'100%', height: 500  }}>
                <InputLabel id="demo-multiple-chip-label">Food list</InputLabel>
                <Select
                  labelId="demo-multiple-chip-label"
@@ -93,6 +99,15 @@ const [nightFood, setnightFood] = React.useState([])
                </Select>
              </FormControl>
            </div>
+           <Button
+           onClick={handleDietNight}
+              type="submit"
+              variant="contained"
+              size="large"
+              className="font-bold text-lg bg-primary w-full pt-72"
+            >
+              submit
+            </Button>
          </div>
        </div>
     );

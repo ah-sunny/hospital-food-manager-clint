@@ -70,8 +70,8 @@ const handleDietMorning =()=>{
          <div>
            <h1 className="text-2xl font-bold mx-auto text-center my-5 border-b-2 pb-2 border-gray-500" >Morning</h1>
 
-           <div>
-             <FormControl sx={{ m: 1, width: 450 }}>
+           <div >
+             <FormControl sx={{  width:'100%', height: 500  }}>
                <InputLabel id="demo-multiple-chip-label">Food list</InputLabel>
                <Select
                  labelId="demo-multiple-chip-label"
@@ -105,7 +105,7 @@ const handleDietMorning =()=>{
            <Button
            onClick={handleDietMorning}
               type="submit"
-              variant="outlined"
+              variant="contained"
               size="large"
               className="font-bold text-lg bg-primary w-full pt-72"
             >

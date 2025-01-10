@@ -7,6 +7,7 @@ import MenuItem from '@mui/material/MenuItem';
 import FormControl from '@mui/material/FormControl';
 import Select from '@mui/material/Select';
 import Chip from '@mui/material/Chip';
+import { Button } from '@mui/material';
 
 const ITEM_HEIGHT = 80;
 const ITEM_PADDING_TOP = 20;
@@ -54,6 +55,11 @@ const [eveningFood, seteveningFood] = React.useState([])
           typeof value === 'string' ? value.split(',') : value,
         );
       }
+
+
+      const handleDietEvening = ()=>{
+
+      }
     return (
         <div >
          {/* three colounm */}
@@ -61,7 +67,7 @@ const [eveningFood, seteveningFood] = React.useState([])
            <h1 className="text-2xl font-bold mx-auto text-center my-5 border-b-2 pb-2 border-gray-500" >Evening</h1>
 
            <div>
-             <FormControl sx={{ m: 1, width: 450 }}>
+             <FormControl sx={{  width:'100%', height: 500  }}>
                <InputLabel id="demo-multiple-chip-label">Food list</InputLabel>
                <Select
                  labelId="demo-multiple-chip-label"
@@ -91,6 +97,16 @@ const [eveningFood, seteveningFood] = React.useState([])
                </Select>
              </FormControl>
            </div>
+
+           <Button
+           onClick={handleDietEvening}
+              type="submit"
+              variant="contained"
+              size="large"
+              className="font-bold text-lg bg-primary w-full pt-72"
+            >
+              submit
+            </Button>
          </div>
        </div>
     );
