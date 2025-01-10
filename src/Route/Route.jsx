@@ -6,7 +6,10 @@ import Root from "../layout/Root";
 import Login from "../pages/Login";
 import Register from "../pages/Register";
 import HomePage from "../pages/HomePage";
-import PatientDetails from "../pages/dashboard/PatientDetails";
+import PatientDetails from "../pages/dashboard/admin/PatientDetails";
+import DietChart from "../pages/dashboard/admin/DietChart";
+import InnerPantry from "../pages/dashboard/admin/InnerPantry";
+import TrackMeal from "../pages/dashboard/admin/TrackMeal";
 // import DashboardLayoutBasic from "../layout/DashboardLayout";
 
   export const router = createBrowserRouter([
@@ -36,6 +39,21 @@ import PatientDetails from "../pages/dashboard/PatientDetails";
         {
           path: "/dashboard/patient",
           element: <PatientDetails></PatientDetails>
+
+        },
+        {
+          path: "/dashboard/dietChart",
+          element: <DietChart></DietChart>
+
+        },
+        {
+          path: "/dashboard/pantry",
+          element: <InnerPantry></InnerPantry>
+
+        },
+        {
+          path: "/dashboard/trackMeal",
+          element: <TrackMeal></TrackMeal>
 
         }
       ]

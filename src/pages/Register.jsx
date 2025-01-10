@@ -44,7 +44,7 @@ export default function Register() {
       name: name,
       email: data.email,
       password: data?.password,
-      role: "admin",
+      role: "innerPantry",
     };
     console.log(userDetails);
 

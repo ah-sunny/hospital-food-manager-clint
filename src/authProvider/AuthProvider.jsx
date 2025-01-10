@@ -3,6 +3,7 @@ import { createUserWithEmailAndPassword, getAuth, onAuthStateChanged, signInWith
 import PropTypes from 'prop-types';
 import { createContext, useEffect, useState } from "react";
 import { app } from "../firebase/firebase.config";
+import axios from "axios";
 
 export const AuthContext = createContext(null);
 const auth = getAuth(app)
@@ -30,20 +31,20 @@ const AuthProvider = ({ children }) => {
       // const loggedUser = { email: userEmail };
       setUser(currentUser);
       console.log('current user', currentUser);
-      // if(currentUser){
-      //     // const userInfo = { email: currentUser.email };      //its(email)  must be in under if func
-      //     axios.post("https://mini-mart-server.vercel.app/jwt",{ email: currentUser?.email } )
-      //     .then(res=>{
-      //         if(res?.data?.token){
+      if(currentUser){
+          // const userInfo = { email: currentUser.email };      //its(email)  must be in under if func
+          axios.post("http://localhost:4000/jwt",{ email: currentUser?.email } )
+          .then(res=>{
+              if(res?.data?.token){
 
-      //             localStorage.setItem("access-token", res?.data?.token)
-      //             setLoading(false);
-      //         }
-      //     })
-      // }else{
-      //     localStorage.removeItem('access-token')
-      //     setLoading(false)
-      // }
+                  localStorage.setItem("access-token", res?.data?.token)
+                  setLoading(false);
+              }
+          })
+      }else{
+          localStorage.removeItem('access-token')
+          setLoading(false)
+      }
       setLoading(false);
 
     });
