@@ -13,6 +13,7 @@ import TrackMeal from "../pages/dashboard/admin/TrackMeal";
 import FoodPreparetion from "../pages/dashboard/PantryMan/FoodPreparetion";
 import DeliveryPerson from "../pages/dashboard/PantryMan/DeliveryPerson";
 import Status from "../pages/dashboard/PantryMan/Status";
+import AdminLogin from "../pages/AdminLogin";
 // import DashboardLayoutBasic from "../layout/DashboardLayout";
 
   export const router = createBrowserRouter([
@@ -32,6 +33,10 @@ import Status from "../pages/dashboard/PantryMan/Status";
         {
           path: "/register",
           element: <Register></Register>
+        },
+        {
+          path: '/admin-Login',
+          element: <AdminLogin></AdminLogin>
         }
       ]
     },

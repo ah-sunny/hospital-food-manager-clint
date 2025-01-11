@@ -13,7 +13,7 @@ const HomePage = () => {
         <div>
              {/* card */}
       <div className="flex gap-5 justify-center mt-16">
-        <Link to="/login">
+        <Link to="/admin-Login">
           <Card className="w-80 h-56  ">
             <CardActionArea
               onClick={() => setSelectedCard(1)}
